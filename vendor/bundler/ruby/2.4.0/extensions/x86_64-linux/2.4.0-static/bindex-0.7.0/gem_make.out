@@ -1,0 +1,15 @@
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+/home/vagrant/.rbenv/versions/2.4.2/bin/ruby -r ./siteconf20190524-17115-ts0v9v.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.so
+
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20190524-17115-1x7djxt/skiptrace

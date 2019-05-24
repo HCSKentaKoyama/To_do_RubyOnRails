@@ -1,0 +1,5 @@
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.4.2/bin/ruby mkrf_conf.rb
+
+current directory: /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/childprocess-1.0.1/ext
+/home/vagrant/.rbenv/versions/2.4.2/bin/ruby -rubygems /home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/gems/rake-12.3.2/exe/rake RUBYARCHDIR=/home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/extensions/x86_64-linux/2.4.0-static/childprocess-1.0.1 RUBYLIBDIR=/home/vagrant/app/to_do/vendor/bundler/ruby/2.4.0/extensions/x86_64-linux/2.4.0-static/childprocess-1.0.1
