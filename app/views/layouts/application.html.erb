@@ -9,7 +9,39 @@
   </head>
 
   <body>
-    <h1>ヘッダー的なもの</h1>
+
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("To-Do", "/index") %>
+        <% else %>
+          <%= link_to("To-Do", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+            <%= link_to(@current_user.user_name, "/index") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("新規登録", "/new") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
