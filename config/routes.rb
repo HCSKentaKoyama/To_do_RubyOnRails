@@ -4,6 +4,7 @@ get "login" => "users#login_form"
 post "login" => "users#login"
 get "new" => "users#create_form"
 post "users/create" => "users#create"
+post "logout" => "users#logout"
 
 get "index" => "tasks#index"
 
