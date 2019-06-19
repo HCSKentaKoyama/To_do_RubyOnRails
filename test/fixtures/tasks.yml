@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  due_date: 
+  execution_date: MyString
+  user_id: MyString
+  done_flg: false
+
+two:
+  task_name: MyString
+  due_date: 
+  execution_date: MyString
+  user_id: MyString
+  done_flg: false
