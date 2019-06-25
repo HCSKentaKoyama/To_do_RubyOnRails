@@ -22,14 +22,16 @@
         <th>タスク名</th>
         <th>期日</th>
         <th>実行日</th>
-        <th>消す</th>
+        <th>完了</th>
     </tr>
 <% @tasks.each do |task| %>
-    <tr>
-        <th><%= "#{task.task_name}" %></th>
-        <th><%= "#{task.due_date}" %></th>
-        <th><%= "#{task.execution_date}" %></th>
-        <th><%= "×" %></th>
-    </tr>
+    <% if task.done_flg != true %>
+        <tr>
+            <th><%= "#{task.task_name}" %></th>
+            <th><%= "#{task.due_date}" %></th>
+            <th><%= "#{task.execution_date}" %></th>
+            <th><%= link_to("×", "/tasks/done/#{task.id}",{method: :post}) %></th>
+        </tr>
+    <% end %>
 <% end %>
 </table>

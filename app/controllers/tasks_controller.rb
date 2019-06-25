@@ -22,4 +22,11 @@ class TasksController < ApplicationController
         end
         redirect_to("/index")
     end
+
+    def done
+        task = Task.find_by(id: params[:id])
+        task.done_flg = true
+        task.save
+        redirect_to("/index")
+    end
 end
