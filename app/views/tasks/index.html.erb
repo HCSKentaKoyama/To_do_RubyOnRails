@@ -9,9 +9,9 @@
     <p>タスク名</p>
     <input name="task_name">
     <p>期限</p>
-    <%= date_select :due_date, Date.today , class: 'form-control' %>
+    <%= date_select(:due_date,:date,date_separator: '/',use_month_numbers: true) %>
     <p>実行日</p>
-    <%= date_select :execution_date, Date.today, class: 'form-control' %>
+    <%= date_select(:execution_date,:date,{date_separator: '/',use_month_numbers: true}) %>
     <input type="submit" value="登録">
 <% end %>
 

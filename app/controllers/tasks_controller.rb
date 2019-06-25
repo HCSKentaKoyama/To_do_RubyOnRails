@@ -11,10 +11,8 @@ class TasksController < ApplicationController
     def create
         @task = Task.new(
             task_name: params[:task_name],
-            #due_date: Date.new(params["due_date(1i)"]&.to_i, params["due_date(2i)"]&.to_i, params["due_date(3i)"]&.to_i),
-            #execution_date: Date.new(params["execution_date(1i)"]&.to_i, params["execution_date(2i)"]&.to_i, params["execution_date(3i)"]&.to_i),
-            due_date: Date.new(2019, 6, 25),
-            execution_date: Date.new(2019, 6, 25),
+            due_date: Date.new(params[:due_date]["date(1i)"].to_i, params[:due_date]["date(2i)"].to_i, params[:due_date]["date(3i)"].to_i),
+            execution_date: Date.new(params[:execution_date]["date(1i)"].to_i, params[:execution_date]["date(2i)"].to_i, params[:execution_date]["date(3i)"].to_i),
             user_id: @current_user.id
         )
         if @task.save
