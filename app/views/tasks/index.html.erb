@@ -1,6 +1,22 @@
-ちんこ
+<% if @error_message %>
+    <div class="form-error">
+        <%= @error_message %>
+    </div>
+<% end %>
 
-タスク一覧
+<h1>タスク登録</h1>
+<%= form_tag("/tasks/create") do%>
+    <p>タスク名</p>
+    <input name="task_name">
+    <p>期限</p>
+    <%= date_select :due_date, Date.today , class: 'form-control' %>
+    <p>実行日</p>
+    <%= date_select :execution_date, Date.today, class: 'form-control' %>
+    <input type="submit" value="登録">
+<% end %>
+
+
+<h1>タスク一覧
 <% @tasks.each do |task| %>
     <ul><li><%= "タスク名 : #{task.task_name}" %></ul>
     <ul><li><%= "期日 : #{task.due_date}" %></ul>

@@ -7,6 +7,7 @@ post "users/create" => "users#create"
 post "logout" => "users#logout"
 
 get "index" => "tasks#index"
+post "tasks/create" => "tasks#create"
 
 get "/" => "users#login_form"
 end
