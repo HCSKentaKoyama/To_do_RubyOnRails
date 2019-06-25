@@ -1,1 +1,8 @@
 ちんこ
+
+タスク一覧
+<% @tasks.each do |task| %>
+    <ul><li><%= "タスク名 : #{task.task_name}" %></ul>
+    <ul><li><%= "期日 : #{task.due_date}" %></ul>
+    <ul><li><%= "実行日 : #{task.execution_date}" %></ul>
+<% end %>
