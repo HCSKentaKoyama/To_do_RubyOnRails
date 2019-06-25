@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190611031124) do
+ActiveRecord::Schema.define(version: 20190625015122) do
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "task_name"
-    t.datetime "due_date"
-    t.datetime "execution_date"
+    t.date "due_date"
+    t.date "execution_date"
     t.bigint "user_id"
     t.boolean "done_flg"
     t.datetime "created_at", null: false
