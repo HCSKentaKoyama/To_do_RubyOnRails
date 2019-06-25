@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             flash[:notice] = "ログインしました"
             redirect_to("/index")
         else
-            @error_message = "ユーザIDまたはパスワードが間違っています"
+            flash[:notice] = "ユーザIDまたはパスワードが間違っています"
             @user_name = params[:user_name]
             @password = params[:password]
             render("users/login_form")
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
             flash[:notice] = "ユーザ登録が完了しました"
             redirect_to("/index")
         else
-            @error_message = "登録できなかったよ"
+            flash[:notice] = "登録できなかったよ"
             @user_name = params[:user_name]
             @password = params[:password]
             render("users/create_form")
