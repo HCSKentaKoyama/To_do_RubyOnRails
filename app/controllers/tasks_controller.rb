@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
     require 'date'
-
+    include TasksHelper
     before_action :authenticate_user, {only: [:index]}
     # before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
 
     def index
-        @tasks = Task.where(user_id: @current_user.id)
+        @tasks = Task.where(user_id: @current_user.id).order(sort_column + ' ' + sort_direction)
     end
 
     def create
