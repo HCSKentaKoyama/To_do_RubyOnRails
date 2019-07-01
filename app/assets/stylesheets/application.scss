@@ -23,21 +23,42 @@
 /* universal */
 body {
     padding-top: 60px;
+    background-color: #f5f8fa;
 }
-
-section {
-    overflow: auto;
-}
-
-textarea {
-    resize: vertical;
-}
-
 .center {
     text-align: center;
     h1 {
         margin-bottom: 10px;
     }
+}
+
+.main{
+    position: absolute;
+    width: 100%;
+    //height: auto;
+    min-height: 100%;
+}
+.container{
+    max-width: 700px;
+    margin: 60px auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    clear: both;
+}
+
+.box-heading{
+    font-weight: 300;
+    margin: 60px 0 20px;
+    font-size: 48px;
+    color: #bcc8d4;
+}
+
+.box-body{
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    //width: 100%;
 }
 
 /* typography */
