@@ -38,8 +38,11 @@
     </header>
 
     <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
+      <div class="alert alert-info">
+        <div class="text-center">
+          <%= flash[:notice] %>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
       </div>
     <% end %>
     <%= yield %>
