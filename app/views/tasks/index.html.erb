@@ -42,24 +42,35 @@
     <div class="box-heading">
         タスク一覧
     </div>
-    <div class="box-body">
-        <table>
-            <tr>
-                <th>タスク名</th>
-                <th>期日<%= sort_asc("due_date") %><%= sort_desc("due_date") %></th>
-                <th>実行日<%= sort_asc("execution_date") %><%= sort_desc("execuiton_date") %></th>
-                <th>完了</th>
-            </tr>
-        <% @tasks.each do |task| %>
-            <% if task.done_flg != true %>
+    <div class="box-body alt-table-responsive">
+        <table class="table table-hover alt-table-responsive">
+            <thead>
                 <tr>
-                    <th><%= "#{task.task_name}" %></th>
-                    <th><%= "#{task.due_date}" %></th>
-                    <th><%= "#{task.execution_date}" %></th>
-                    <th><%= link_to("×", "/tasks/done/#{task.id}",{method: :post}) %></th>
+                    <th class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        タスク名
+                    </th>
+                    <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        期日<%= sort_asc("due_date") %><%= sort_desc("due_date") %>
+                    </th>
+                    <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        実行日<%= sort_asc("execution_date") %><%= sort_desc("execuiton_date") %>
+                    </th>
+                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    </th>
                 </tr>
-            <% end %>
-        <% end %>
+            </thead>
+            <tbody>
+                <% @tasks.each do |task| %>
+                    <% if task.done_flg != true %>
+                        <tr>
+                            <th><%= "#{task.task_name}" %></th>
+                            <th><%= "#{task.due_date}" %></th>
+                            <th><%= "#{task.execution_date}" %></th>
+                            <th><%= link_to("×", "/tasks/done/#{task.id}",{method: :post}) %></th>
+                        </tr>
+                    <% end %>
+                <% end %>
+            </tbody>
         </table>
     <div>
 </div>
