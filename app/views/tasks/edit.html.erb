@@ -1,0 +1,61 @@
+<% if @error_message %>
+    <div class="form-error">
+        <%= @error_message %>
+    </div>
+<% end %>
+
+<div class="container">
+    <div class="box-heading">
+        タスク編集
+    </div>
+    <div class="box-body">
+        <%= form_tag("/update") do%>
+            <div class="form-group">
+                <label>タスク名</label>
+                <input name="task_name" value="<%= @task.task_name %>" class='form-control bootstrap-text'>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label>期限</label>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <%= date_select(:due_date,:date,{default: @task.due_date,date_separator: '/',use_month_numbers: true}, {class: "form-control bootstrap-date"}) %>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label>実行日</label>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <%= date_select(:execution_date,:date,{default: @task.execution_date,date_separator: '/',use_month_numbers: true}, {class: "form-control bootstrap-date"}) %>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label>作成日</label>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <%= @task.created_at.strftime("%Y / %m / %d ") %>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label>最終更新日</label>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <%= @task.updated_at.strftime("%Y / %m / %d ") %>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="id" value="<%= @task.id %>">
+            <input type="submit" value="編集" class="btn btn-default">
+        <% end %>
+    </div>
+</div>

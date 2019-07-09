@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
     require 'date'
     include TasksHelper
-    before_action :authenticate_user, {only: [:index]}
-    # before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+    before_action :authenticate_user, {only: [:index,:create,:done,:edit,:update]}
 
     def index
         @tasks = Task.where(user_id: @current_user.id).order(sort_column + ' ' + sort_direction)
@@ -26,6 +25,19 @@ class TasksController < ApplicationController
     def done
         task = Task.find_by(id: params[:id])
         task.done_flg = true
+        task.save
+        redirect_to("/index")
+    end
+
+    def edit
+        @task = Task.find_by(id: params[:id])
+    end
+
+    def update
+        task = Task.find_by(id: params[:id])
+        task.task_name = params[:task_name]
+        task.due_date = Date.new(params[:due_date]["date(1i)"].to_i, params[:due_date]["date(2i)"].to_i, params[:due_date]["date(3i)"].to_i)
+        task.execution_date = Date.new(params[:execution_date]["date(1i)"].to_i, params[:execution_date]["date(2i)"].to_i, params[:execution_date]["date(3i)"].to_i)
         task.save
         redirect_to("/index")
     end

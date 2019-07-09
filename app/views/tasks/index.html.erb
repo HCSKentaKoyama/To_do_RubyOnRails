@@ -63,7 +63,7 @@
                 <% @tasks.each do |task| %>
                     <% if task.done_flg != true %>
                         <tr>
-                            <th><%= "#{task.task_name}" %></th>
+                            <th><%= link_to("#{task.task_name}","/tasks/edit/#{task.id}") %></th>
                             <th><%= "#{task.due_date}" %></th>
                             <th><%= "#{task.execution_date}" %></th>
                             <th><%= link_to("×", "/tasks/done/#{task.id}",{method: :post}) %></th>
