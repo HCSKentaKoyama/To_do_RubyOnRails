@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def not_same_user
+    task = Task.find_by(id: params[:id])
+    user_id = task.user_id
+    if @current_user.id != user_id
+      flash[:notice] = "不正なアクセスです"
+      redirect_to("/index")
+    end
+  end
+
 end

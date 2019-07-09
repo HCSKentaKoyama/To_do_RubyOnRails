@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
     require 'date'
     include TasksHelper
-    before_action :authenticate_user, {only: [:index,:create,:done,:edit,:update]}
+    before_action :not_same_user, {only: [:create,:done,:edit,:update]}
+    before_action :authenticate_user, {only: [:index,:done,:edit]}
 
     def index
         @tasks = Task.where(user_id: @current_user.id).order(sort_column + ' ' + sort_direction)
