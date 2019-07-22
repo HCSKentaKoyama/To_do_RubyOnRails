@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     require 'date'
     include TasksHelper
-    before_action :not_same_user, {only: [:create,:done,:edit,:update]}
+    before_action :not_same_user, {only: [:done,:edit,:update]}
     before_action :authenticate_user, {only: [:index,:done,:edit]}
 
     def index
